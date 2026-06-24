@@ -23,3 +23,48 @@
         android:layout_gravity="center"/>
 
 </FrameLayout>
+package com.example.jogobasico;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity {
+
+    int score = 0;
+    TextView scoreText;
+    View ball;
+    FrameLayout layout;
+    Random random = new Random();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        scoreText = findViewById(R.id.scoreText);
+        ball = findViewById(R.id.ball);
+        layout = findViewById(R.id.gameLayout);
+
+        ball.setOnClickListener(v -> {
+            score++;
+            scoreText.setText("Score: " + score);
+            moveBall();
+        });
+    }
+
+    private void moveBall() {
+        int maxX = layout.getWidth() - ball.getWidth();
+        int maxY = layout.getHeight() - ball.getHeight();
+
+        float x = random.nextInt(Math.max(maxX, 1));
+        float y = random.nextInt(Math.max(maxY, 1));
+
+        ball.setX(x);
+        ball.setY(y);
+    }
+}
