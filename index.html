@@ -1,1 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1a1a2e">
 
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score: 0"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="40dp"/>
+
+    <View
+        android:id="@+id/ball"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/ball_shape"
+        android:layout_gravity="center"/>
+
+</FrameLayout>
